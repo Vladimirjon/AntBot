@@ -20,6 +20,8 @@ public class McAntbot extends IAbot implements McIantBotComponentes,McITecnicoEs
         McTenaza mcTenaza = new McTenaza();
         McExpertoIngles mcExpertoIngles = new McExpertoIngles();
         McExpertoRuso mcExpertoRuso = new McExpertoRuso();
+        Mctronco mctronco = new Mctronco();
+
         System.out.println("-----------------------------------------------------------------");
         System.out.println("--->   --->   --->   Formica rufa creada con las siguientes caracteristicas <---  <---  <--- ");
         System.out.println("");
@@ -48,8 +50,7 @@ public class McAntbot extends IAbot implements McIantBotComponentes,McITecnicoEs
         mcTenaza.McTenaza1();
         System.out.println("");
         if(McAntbot.mctronco)
-        System.out.println("            MEDIDAS DE LA FORMICA RUFA");
-        System.out.println("--->  20 cm largo , 5 cm alto , 5 cm ancho ");
+        mctronco.medidas();
         System.out.println("");
         if(McAntbot.ensenarruso)
         mcExpertoRuso.idiomar();
