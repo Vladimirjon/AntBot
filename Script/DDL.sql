@@ -17,7 +17,10 @@ InformacionHormigas (
     IdHormiga INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     CodigoHormiga TEXT NOT NULL,
     IdCategoriaHormigas INTEGER NOT NULL REFERENCES ClasificacionHormigas(IdCategoriaHormiga),
-    SerieAntBot INTEGER NOT NULL,
-    FechaCrea DATETIME DEFAULT (datetime('now', 'localtime')),
-    FechaModifica DATETIME
+    ClasificacionHormiga TEXT NO NULL,
+    COMIO TEXT NO NULL,
+    ESTADO VARCHAR(1) NOT NULL DEFAULT ('A'),
+    RECOGIO TEXT NO NULL;
 );
+
+)
