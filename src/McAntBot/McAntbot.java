@@ -12,7 +12,7 @@ public class McAntbot extends IAbot
     public McAntbot(IAbot iAbot) {
         super(iAbot);
 
-        McProcesador i = new McProcesador();
+        mcProcesador i = new mcProcesador();
         McAntenas mcAntenas = new McAntenas();
         McCircuitoAnillado circuitoAnillado = new McCircuitoAnillado();
         MccircuitoCarga c = new MccircuitoCarga();
@@ -75,7 +75,7 @@ public class McAntbot extends IAbot
         oSoldado1.mostrar();
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
 
-        McProcesador i1 = new McProcesador();
+        mcProcesador i1 = new mcProcesador();
         McAntenas mcAntenas1 = new McAntenas();
         McCircuitoAnillado circuitoAnillado1 = new McCircuitoAnillado();
         MccircuitoCarga c1 = new MccircuitoCarga();
@@ -130,7 +130,7 @@ public class McAntbot extends IAbot
         ohormigaLarva2.mostrar();
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
 
-        McProcesador i2 = new McProcesador();
+        mcProcesador i2 = new mcProcesador();
         McAntenas mcAntenas2 = new McAntenas();
         McCircuitoAnillado circuitoAnillado2 = new McCircuitoAnillado();
         MccircuitoCarga c2 = new MccircuitoCarga();
@@ -178,7 +178,7 @@ public class McAntbot extends IAbot
         System.out.println("");
         ////////////////////////////////////////////////////////////////
 
-        McProcesador i4 = new McProcesador();
+        mcProcesador i4 = new mcProcesador();
         McAntenas mcAntenas4 = new McAntenas();
         McCircuitoAnillado circuitoAnillado4 = new McCircuitoAnillado();
         MccircuitoCarga c4 = new MccircuitoCarga();
@@ -235,7 +235,7 @@ public class McAntbot extends IAbot
         System.out.println("");
         System.out.println("");
         System.out.println("----------------------------------------------------------------------------------------------------------------------");
-        McProcesador i5 = new McProcesador();
+        mcProcesador i5 = new mcProcesador();
         McAntenas mcAntenas5 = new McAntenas();
         McCircuitoAnillado circuitoAnillado5 = new McCircuitoAnillado();
         MccircuitoCarga c5 = new MccircuitoCarga();

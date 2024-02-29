@@ -1,6 +1,6 @@
 package McAntBot;
 
-public class McProcesador {
+public class mcProcesador {
     public void mcProceso(){
         System.out.println("--->  Procesador para distribuir senales en funcionamiento");
 

@@ -8,7 +8,7 @@ public class App {
 
         McAntbot a1 = new McAntbot(iAbot);
         System.out.println("------------------------------------------------------------------------------");
-        System.out.println("HORMIGAS LISTAS PARA LA BATALLA SWEETY FOX TE AMO");
+        System.out.println("HORMIGAS LISTAS PARA LA BATALLA");
         System.out.println("------------------------------------------------------------------------------");
 
 
