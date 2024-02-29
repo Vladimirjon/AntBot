@@ -77,12 +77,15 @@ public class tpLarvasDAO extends tpSQLiteDataHelper implements tpIDAO<tpLarvasDT
 
     @Override
     public boolean create(tpLarvasDTO entity) throws Exception {
-        String query = " INSERT INTO Larva (Humedad, IdTipoRiego) VALUES (?,?)";
+        String query = " INSERT INTO Larva (codigoHormiga, clasificacion, Comio, Estado, Recogio) VALUES (?,?,?,?,?)";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, entity.getHumedadSuelo());
-            pstmt.setInt(2, entity.getIdTipoRiego());
+            pstmt.setString(1, entity.getCodHormiga());
+            pstmt.setString(2, entity.getClasificacion());
+            pstmt.setString(2, entity.getComio());
+            pstmt.setString(2, entity.getEstado());
+            pstmt.setString(2, entity.getRecogio());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -92,15 +95,15 @@ public class tpLarvasDAO extends tpSQLiteDataHelper implements tpIDAO<tpLarvasDT
 
     @Override
     public boolean update(tpLarvasDTO entity) throws Exception {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        String query = " UPDATE Larva SET Humedad = ?, FechaModificacion = ? WHERE IdHormiga = ?";
+        String query = " UPDATE Larva SET codigoHormiga = ?, clasificacion = ?,Comio = ?,Estado = ?,Recogio = ? WHERE IdHormiga = ?";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, entity.getHumedadSuelo());
-            pstmt.setString(2, dtf.format(now).toString());
-            pstmt.setInt(3, entity.getIdDato());
+            pstmt.setString(1,entity.getCodHormiga());
+            pstmt.setString(2,entity.getClasificacion());
+            pstmt.setString(3,entity.getComio());
+            pstmt.setString(4,entity.getEstado());
+            pstmt.setString(5,entity.getRecogio());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
