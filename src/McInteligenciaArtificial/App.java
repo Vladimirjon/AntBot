@@ -7,7 +7,7 @@ public class App {
         IAbot iAbot = IAbot.getInstance("AntBot Formica Rufa");
 
         McAntbot a1 = new McAntbot(iAbot);
-        System.out.println("Hormiga asignada:");
+       
         
         // McAntbot a2 = new McAntbot(iAbot);
         // System.out.println(a2.getNombre());

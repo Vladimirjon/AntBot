@@ -1,24 +1,28 @@
 package McAntBot;
 
 import java.security.SecureRandom;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-public interface IgenerarCodigo {
+interface IgenerarCodigo {
     default String generaCodigo() {
-        int length = 6;  // Longitud del código
-        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        
-        // Utiliza SecureRandom para generar números aleatorios de forma segura
+        int length = 6;  // Length of the code
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        // Use SecureRandom to generate random numbers securely
         SecureRandom random = new SecureRandom();
-        
-        StringBuilder codigoBuilder = new StringBuilder();
-        
-        // Genera el código combinando letras y números
+
+        StringBuilder codeBuilder = new StringBuilder();
+
+        // Generate the code by combining letters and numbers
         for (int i = 0; i < length; i++) {
-            int index = random.nextInt(caracteres.length());
-            char caracter = caracteres.charAt(index);
-            codigoBuilder.append(caracter);
+            int index = random.nextInt(characters.length());
+            char character = characters.charAt(index);
+            codeBuilder.append(character);
         }
-        
-        return codigoBuilder.toString();
+
+        return codeBuilder.toString();
     }
 }
