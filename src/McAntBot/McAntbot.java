@@ -8,43 +8,41 @@ public class McAntbot extends IAbot implements McIantBotComponentes,McITecnicoEs
 
     public McAntbot(IAbot iAbot) {
         super(iAbot);
+        McProcesador i = new McProcesador();
+        McAntenas mcAntenas = new McAntenas();
+        McCircuitoAnillado circuitoAnillado = new McCircuitoAnillado();
+        MccircuitoCarga c = new MccircuitoCarga();
+        McRadio mcRadio = new McRadio();
+        McSensorOptico sensorOptico=new McSensorOptico();
+        MctransductorFlexion mctransductorFlexion = new MctransductorFlexion();
+        McTenaza mcTenaza = new McTenaza();
+
         System.out.println("-----------------------------------------------------------------");
         System.out.println("--->   --->   --->   Formica rufa creada con las siguientes caracteristicas <---  <---  <--- ");
         System.out.println("");
         if(McAntbot.mcProcesador)
-        System.out.println("--->  Procesador para distribuir senales en funcionamiento");
+        i.mcProceso();
         if(McAntbot.mcantenas)
         System.out.println("");
-        System.out.println("--->  Antenas de contacto ");
-        McAntenas mcAntenas = new McAntenas();
         mcAntenas.mccontactar();
         System.out.println("");
         if(McAntbot.mccircuitoAnillado)
-        System.out.println("--->  Circuito Anillado con salida de 300 V");
-        McCircuitoAnillado circuitoAnillado = new McCircuitoAnillado();
         circuitoAnillado.MccircuitoAnillado();
         System.out.println("");
         if(McAntbot.mccirucitoCarga)
-        System.out.println("--->  La bateria esta cargada y con 40 minutos de vida");
+        c.carga();
         System.out.println("");
         if(McAntbot.mcradio)
         System.out.println("--->  Radio para comunicacion con otros soldados funcional");
-        McRadio mcRadio = new McRadio();
         mcRadio.mccomunicacion();
         System.out.println("");
         if(McAntbot.mcsensorOptico)
-        System.out.println("--->  Sensor Optico y camara en funcionamiento ");
-        McSensorOptico sensorOptico=new McSensorOptico();
         sensorOptico.mccamara();
         System.out.println("");
         if(McAntbot.mctTransductorFlexion)
-        System.out.println("--->  Transductor Flexión para movimiento");
-        MctransductorFlexion mctransductorFlexion = new MctransductorFlexion();
         mctransductorFlexion.MctransductorFlexion1();
         System.out.println("");
         if(McAntbot.mctenaza)
-        System.out.println("--->  Tenaza de agarre ");
-        McTenaza mcTenaza = new McTenaza();
         mcTenaza.McTenaza1();
         System.out.println("");
         if(McAntbot.mctronco)
@@ -58,8 +56,11 @@ public class McAntbot extends IAbot implements McIantBotComponentes,McITecnicoEs
         System.out.println("--->  Ingles tecnico.... lexico, gramatica, fonetica transferida al ANTBOT");
         System.out.println("");
         System.out.println("");
+        System.out.println("------------------------------------------------------------------------------");
+        System.out.println("ZANGANO");
+
         if(McAntbot.mcAlas)
-            System.out.println("   Hormiga Zangano lista para volar con sus alas");
+         System.out.println("   Hormiga Zangano lista para volar con sus alas");
         }
     
     }
