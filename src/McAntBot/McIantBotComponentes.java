@@ -1,6 +1,7 @@
 package McAntBot;
 
 public interface McIantBotComponentes {
+    public boolean mcAlas = true;
     public boolean mcantenas = true;
     public boolean mccircuitoAnillado = true;
     public boolean mccirucitoCarga = true;

@@ -4,7 +4,7 @@ import McEjercitoRuso.McITecnicoEspanol;
 import McEjercitoRuso.McITecnicoIngles;
 import McInteligenciaArtificial.IAbot;
 
-public class McAntbot extends IAbot implements McIantBotComponentes,McITecnicoEspanol,McITecnicoIngles{
+public class McAntbot extends IAbot implements McIantBotComponentes,McITecnicoEspanol,McITecnicoIngles,IgenerarCodigo,IgenerarSerie{
 
     public McAntbot(IAbot iAbot) {
         super(iAbot);
@@ -58,7 +58,10 @@ public class McAntbot extends IAbot implements McIantBotComponentes,McITecnicoEs
         System.out.println("--->  Ingles tecnico.... lexico, gramatica, fonetica transferida al ANTBOT");
         System.out.println("");
         System.out.println("");
-
+        if(McAntbot.mcAlas)
+            System.out.println("   Hormiga Zangano lista para volar con sus alas");
+        }
+    
     }
 
-}
+
