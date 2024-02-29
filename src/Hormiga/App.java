@@ -2,7 +2,8 @@ package Hormiga;
 
 import java.util.Random;
 
-import DataAcess.ArchivoTexto.archivoTexto;
+import DataAccessExamen.ArchivoTexto.archivoTexto;
+import DataAccessExamen.ArchivoTexto.vistaTexto;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,9 @@ public class App {
         NumeroSerie oNumeroSerie = new NumeroSerie();
 
          archivoTexto TParchivoTexto = new archivoTexto();
+         vistaTexto TPvistaTexto = new vistaTexto();
+
+         ArrayList<String> palabras = TPvistaTexto.obtenerPalabras();
 
         AntBot oAntBot = new AntBot();
 
@@ -106,7 +110,7 @@ public class App {
 
         }
 
-        System.out.println(TParchivoTexto);
+        //TPvistaTexto.obtenerPalabras();
     }
 
     // private static DatosHormiga seleccionarHormigaReina(ArrayList<DatosHormiga> listaHormigas) {

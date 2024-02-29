@@ -3,7 +3,7 @@ package Hormiga;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Hormiga {
+public class Hormiga implements  IHormiga {
     
     private int codigoUnico;
     private String numeroSerie;
@@ -127,6 +127,9 @@ public class Hormiga {
         }
     }
     
+    public boolean comer(String alimento){
+        return true;
+    }
     
    
 }
