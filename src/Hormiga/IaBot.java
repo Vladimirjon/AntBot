@@ -1,6 +1,6 @@
 package Hormiga;
 
-public class IaBot implements MenteControl, IIngles, IRuso{
+public class IaBot implements MenteControl, IIngles, IRuso,IIA{
     
     @Override
     public void Instrucciones(String raza){
@@ -20,6 +20,11 @@ public class IaBot implements MenteControl, IIngles, IRuso{
 
     public void IdiomarIngles(){
         System.out.println("--->  Ingles tecnico.... lexico, gramatica, fonetica transferida al ANTBOT");
+    }
+
+    @Override
+    public boolean buscar(String Alimento){
+        return true;
     }
 
 }
