@@ -1,5 +1,7 @@
 package McAntBot;
 
+import McEjercitoRuso.McExpertoIngles;
+import McEjercitoRuso.McExpertoRuso;
 import McEjercitoRuso.McITecnicoEspanol;
 import McEjercitoRuso.McITecnicoIngles;
 import McInteligenciaArtificial.IAbot;
@@ -16,7 +18,8 @@ public class McAntbot extends IAbot implements McIantBotComponentes,McITecnicoEs
         McSensorOptico sensorOptico=new McSensorOptico();
         MctransductorFlexion mctransductorFlexion = new MctransductorFlexion();
         McTenaza mcTenaza = new McTenaza();
-
+        McExpertoIngles mcExpertoIngles = new McExpertoIngles();
+        McExpertoRuso mcExpertoRuso = new McExpertoRuso();
         System.out.println("-----------------------------------------------------------------");
         System.out.println("--->   --->   --->   Formica rufa creada con las siguientes caracteristicas <---  <---  <--- ");
         System.out.println("");
@@ -33,7 +36,6 @@ public class McAntbot extends IAbot implements McIantBotComponentes,McITecnicoEs
         c.carga();
         System.out.println("");
         if(McAntbot.mcradio)
-        System.out.println("--->  Radio para comunicacion con otros soldados funcional");
         mcRadio.mccomunicacion();
         System.out.println("");
         if(McAntbot.mcsensorOptico)
@@ -49,11 +51,11 @@ public class McAntbot extends IAbot implements McIantBotComponentes,McITecnicoEs
         System.out.println("            MEDIDAS DE LA FORMICA RUFA");
         System.out.println("--->  20 cm largo , 5 cm alto , 5 cm ancho ");
         System.out.println("");
-        if(McAntbot.ensenarespanol)
-        System.out.println("--->  Espanol tecnico.... lexico, gramatica, fonetica transferida al ANTBOT");
+        if(McAntbot.ensenarruso)
+        mcExpertoRuso.idiomar();
         System.out.println("");
         if(McAntbot.ensenaringles)
-        System.out.println("--->  Ingles tecnico.... lexico, gramatica, fonetica transferida al ANTBOT");
+        mcExpertoIngles.idioma();
         System.out.println("");
         System.out.println("");
         System.out.println("------------------------------------------------------------------------------");

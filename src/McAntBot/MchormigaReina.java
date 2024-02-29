@@ -2,11 +2,10 @@ package McAntBot;
 
 import McInteligenciaArtificial.IAbot;
 
-public class MchormigaReina extends McAntbot {
+public class MchormigaReina  {
 
-    public MchormigaReina(IAbot iAbot) {
-        super(iAbot);
-        //TODO Auto-generated constructor stub
-    }
     
+    public void mostrar(){
+        System.out.println("La hormiga reina esta lista");
+    }
 }
