@@ -2,7 +2,7 @@ package McAntBot;
 
 import java.util.Random;
 
-public class MchormigaZangano {
+public class MchormigaZangano implements IgenerarSerie, IgenerarCodigo{
     private int mcAlas;
 
     public MchormigaZangano() {
@@ -13,5 +13,6 @@ public class MchormigaZangano {
 
     public void integrarAlas() {
         System.out.println("La hormiga zángano está preparada con sus " + mcAlas + " alas");
+        System.out.println("Codigo de seguridad: " + generaCodigo()  +" Codigo de serie: "+ generaSerie());
     }
 }
