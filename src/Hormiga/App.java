@@ -1,20 +1,29 @@
 package Hormiga;
 
 import java.util.Random;
+
+import DataAcess.ArchivoTexto.archivoTexto;
+
 import java.util.ArrayList;
 
 
 public class App {
 
     public static void main(String[] args) {
-        ArrayList<Hormiga> listaHormigas = new ArrayList<>();
+        
         String[] clasificacion = { "Soldado", "Zangano", "Reina", "Larva", "Rastreadora" };
 
         NumeroSerie oNumeroSerie = new NumeroSerie();
 
+         archivoTexto TParchivoTexto = new archivoTexto();
+
         AntBot oAntBot = new AntBot();
 
         Hormiga Hormiguita = null;
+
+        
+
+        ArrayList<Hormiga> listaHormigas = new ArrayList<>();
 
         int codigo;
 
@@ -73,14 +82,31 @@ public class App {
                 System.err.println("Error en la asignación de etiqueta");
                     break;
             }
-            
+            listaHormigas.add(Hormiguita);
+
+
             System.out.println(Hormiguita.getCodigoUnico());
             
-            listaHormigas.add(Hormiguita);
+            Hormiguita.setListaHormigas(listaHormigas);
+
             
             
         }
+        // for (Hormiga hormiga : listaHormigas) {
+        //     System.out.println(hormiga.getTPtipoHormiga());
+        // }
+        
+      
+        System.out.println("");    
+        
+        Hormiguita.verificarReina();
+        Hormiguita.TPcrearLarvas();
+        for (int i = 1; i < 2; i++) {
+        System.out.println(Hormiguita.getTPlarvas());
 
+        }
+
+        System.out.println(TParchivoTexto);
     }
 
     // private static DatosHormiga seleccionarHormigaReina(ArrayList<DatosHormiga> listaHormigas) {
