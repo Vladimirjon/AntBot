@@ -13,7 +13,7 @@ import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneDarkIJTheme;
 
 import UserInterface.Form.MainForm;
-import UserInterface.Form.SplashScreenForm;
+import UserInterface.Form.HormigaScreen;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -85,7 +85,7 @@ public class App {
             e.printStackTrace();
         } 
     
-       SplashScreenForm.show();
+       HormigaScreen.show();
        MainForm frmMain = new MainForm("ANTBOT");
 
     //    try {

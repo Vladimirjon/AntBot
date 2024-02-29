@@ -18,10 +18,31 @@ public class ClasificacionHormigaDTO {
 
     }
 
-    public ClasificacionHormigaDTO(int IdCategoriaHormiga, String ClasificacionHormiga) {
+    private String FechaCrea;
+
+    public String getFechaCrea() {
+        return FechaCrea;
+    }
+
+    public void setFechaCrea(String fechaCrea) {
+        FechaCrea = fechaCrea;
+    }
+
+    private String FechaModifica;
+
+    public String getFechaModifica() {
+        return FechaModifica;
+    }
+
+    public void setFechaModifica(String fechaModifica) {
+        FechaModifica = fechaModifica;
+    }
+
+    public ClasificacionHormigaDTO(int IdCategoriaHormiga, String ClasificacionHormiga,String fechacrea,String fechamodifica) {
         this.IdCategoriaHormiga = IdCategoriaHormiga;
         this.ClasificacionHormiga = ClasificacionHormiga;
-        
+        this.FechaCrea = fechacrea;
+        this.FechaModifica= fechamodifica;
 
     }
 

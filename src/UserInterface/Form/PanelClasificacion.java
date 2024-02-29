@@ -2,12 +2,12 @@ package UserInterface.Form;
 
 import javax.swing.*;
 
-import DataAcess.DTO.ClasificacionHormigaDTO;
 import DataAcess.HormigaBL;
+import DataAcess.DTO.ClasificacionHormigaDTO;
 import UserInterface.IAStyle;
-import UserInterface.CustomerControl.JPButton;
-import UserInterface.CustomerControl.JPLabel;
-import UserInterface.CustomerControl.JPTextBox;
+import UserInterface.CustomerControl.PatButton;
+import UserInterface.CustomerControl.PatLabel;
+import UserInterface.CustomerControl.PatTextBox;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,13 +15,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class ClasificacionPanel  extends JPanel implements ActionListener {
-    private Integer idHormiga = 0, idMaxHormiga=0;
+public class PanelClasificacion  extends JPanel implements ActionListener {
+    private Integer id = 0, idMax=0;
     private HormigaBL hormigaBL = null;
-    private ClasificacionHormigaDTO clasificacionHormigaDTO = null;
+    private ClasificacionHormigaDTO hormiga = null;
 
-    public ClasificacionPanel() {
+    public PanelClasificacion() {
         try {
+            
             customizeComponent();
             loadRow();
             showRow();
@@ -42,39 +43,38 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
     }
 
     private void loadRow() throws Exception {
-        idHormiga      = 1;
+        id      = 2;
         hormigaBL      = new HormigaBL();
-        clasificacionHormigaDTO        = hormigaBL.getByIdClasificacion(idHormiga);
-        // idMaxHormiga   = hormigaBL.getMaxRow();
+        hormiga        = hormigaBL.getByIdClasificacion(id);
+        
     }
 
     private void showRow() {
-        boolean clasifiacionNull = (clasificacionHormigaDTO == null);
-        txtIdClasificacion.setText((clasifiacionNull) ? " " : clasificacionHormigaDTO.getIdCategoriaHormiga().toString());
-        // txtHumedad.setText((clasifiacionNull) ? " " : clasificacionHormigaDTO.getHumedadSuelo().toString());
-        // txtIdTipoRiego.setText((clasifiacionNull) ? " " : clasificacionHormigaDTO.getIdTipoRiego().toString());
-        // txtFechaCrea.setText((clasifiacionNull) ? " " : clasificacionHormigaDTO.getFechaCrea());
-        // txtFechaModifica.setText((clasifiacionNull) ? " " : clasificacionHormigaDTO.getFechaModifica());
-        lblTotalReg.setText(idHormiga.toString() + " de " + idMaxHormiga.toString());
+        boolean clasificacionNULL = (hormiga == null);
+        txtIdClasificacion.setText((clasificacionNULL) ? " " : hormiga.getIdCategoriaHormiga().toString());
+        txtClasificacion.setText((clasificacionNULL) ? " " : hormiga.getClasificacionHormiga());
+        txtCrea.setText((clasificacionNULL) ? " " : hormiga.getFechaCrea());
+        txtModifica.setText((clasificacionNULL) ? " " : hormiga.getFechaModifica());
+        lblTotal.setText(id.toString() + " de " + idMax.toString());
     }
 
     private void btnNuevoClick() {
-        clasificacionHormigaDTO = null;
+        hormiga = null;
         showRow();
     } 
     
     private void btnGuardarClick() {
-        boolean clasifiacionNull = (clasificacionHormigaDTO == null);
+        boolean clasificacionNULL = (hormiga == null);
         // String buttonText = ((JButton) e.getSource()).getText();
         // try {
-        //     if (IAStyle.showConfirmYesNo("¿Seguro que desea " + ((clasifiacionNull) ? "AGREGAR ?" : "ACTUALIZAR ?"))){
+        //     if (IAStyle.showConfirmYesNo("¿Seguro que desea " + ((clasificacionNULL) ? "AGREGAR ?" : "ACTUALIZAR ?"))){
             
-        //         if (clasifiacionNull)
-        //             clasificacionHormigaDTO = new ClasificacionHormigaDTO(txtHumedad.getText());
+        //         if (clasificacionNULL)
+        //             hormiga = new ClasificacionHormigaDTO(0,txtClasificacion.getText());
         //         else
-        //             clasificacionHormigaDTO.setHumedadSuelo(txtHumedad.getText());
+        //             hormiga.setNombre(txtClasificacion.getText());
     
-        //         if(!((clasifiacionNull) ? hormigaBL.create(clasificacionHormigaDTO) : hormigaBL.update(clasificacionHormigaDTO)))
+        //         if(!((clasificacionNULL) ? hormigaBL.create(hormiga) : hormigaBL.update(hormiga)))
         //             IAStyle.showMsgError("Error al guardar...!");
     
         //         loadRow();
@@ -90,7 +90,7 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
         try {
             if (IAStyle.showConfirmYesNo("Seguro que desea Eliminar?")) {
 
-                if (!hormigaBL.delete(clasificacionHormigaDTO.getIdCategoriaHormiga()))
+                if (!hormigaBL.delete(hormiga.getIdCategoriaHormiga()))
                     throw new Exception("Error al eliminar...!");
     
                 loadRow();
@@ -104,7 +104,7 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
 
     private void btnCancelarClick() {
         try {
-            if(clasificacionHormigaDTO == null)
+            if(hormiga == null)
                 loadRow();
             showRow();
         } catch (Exception e) {}
@@ -113,29 +113,29 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnRowIni)
-            idHormiga = 1;
-        if (e.getSource() == btnRowAnt && (idHormiga > 1))
-            idHormiga--;
-        if (e.getSource() == btnRowSig && (idHormiga < idMaxHormiga))
-            idHormiga++;
+            id = 1;
+        if (e.getSource() == btnRowAnt && (id > 1))
+            id--;
+        if (e.getSource() == btnRowSig && (id < idMax))
+            id++;
         if (e.getSource() == btnRowFin)
-            idHormiga = idMaxHormiga;
+            id = idMax;
         try {
-            clasificacionHormigaDTO    = hormigaBL.getByIdClasificacion(idHormiga);  
+            hormiga    = hormigaBL.getByIdClasificacion(id);  
             showRow(); 
         } catch (Exception ex) {}
     }
 
     private void showTable() throws Exception {
-        String[] header = {"IdHormiga", "Clasificacion"};
-        Object[][] data = new Object[hormigaBL.getAll().size()][1];  
+        String[] header = {"Id", "Clasificacion", "FechaCrea","Fecha Modifica"};
+        Object[][] data = new Object[hormigaBL.getAll().size()][4];
         int index = 0;
-        for(ClasificacionHormigaDTO r : hormigaBL.getAll()) {
-            data[index][0] = r.getIdCategoriaHormiga();
-            // data[index][1] = r.getHumedadSuelo();
-            // data[index][2] = r.getIdTipoRiego();
-            // data[index][3] = r.getFechaCrea();
-            // data[index][4] = r.getFechaModifica();
+        for (ClasificacionHormigaDTO s : hormigaBL.getAll()) {
+            data[index][0] = s.getIdCategoriaHormiga();
+            data[index][1] = s.getClasificacionHormiga();
+            data[index][2] = s.getFechaCrea();
+            data[index][3] = s.getFechaModifica();
+            
             index++;
         }
 
@@ -145,7 +145,7 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
         table.setRowSelectionAllowed(true);
         table.setColumnSelectionAllowed(false);
 
-        table.setPreferredScrollableViewportSize(new Dimension(450, 170));
+        table.setPreferredScrollableViewportSize(new Dimension(450, 150));
         table.setFillsViewportHeight(true);
 
         pnlTabla.removeAll();
@@ -157,46 +157,47 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
                 int row = table.rowAtPoint(e.getPoint());
                 int col = table.columnAtPoint(e.getPoint());
                 if (row >= 0 && col >= 0) {
-                    String strIdDato = table.getModel().getValueAt(row, 0).toString();
-                    idHormiga = Integer.parseInt(strIdDato);
+                    String strIdSoldado = table.getModel().getValueAt(row, 0).toString();
+                    id = Integer.parseInt(strIdSoldado);
                     try {
-                        clasificacionHormigaDTO = hormigaBL.getByIdClasificacion(idHormiga);
+                        hormiga = hormigaBL.getByIdClasificacion(id);
                         showRow();
                     } catch (Exception ignored) {
                     }
-                    System.out.println("Tabla.Selected: " + strIdDato);
+                    System.out.println("Tabla.Selected: " + strIdSoldado);
                 }
             }
         });
     }
 
-    private JPLabel 
-            lblTitulo   = new JPLabel("CLASIFICACION"),
-            lblHormiga   = new JPLabel(" Num. Hormiga :      "),
-            lblHumedad   = new JPLabel(" Clasifiacion : "),
-            lblTotalReg = new JPLabel(" 0 de 0 ");
-    private JPTextBox 
-            txtIdClasificacion   = new JPTextBox();
-            // txtIdTipoRiego = new JPTextBox(),
-            // txtHumedad   = new JPTextBox(),
-            // txtFechaCrea = new  JPTextBox(),
-            // txtFechaModifica = new JPTextBox();
+/************************
+ * FormDesing : pat_mic
+ ************************/ 
+    private PatLabel 
+            lblTitulo   = new PatLabel("SOLDADO "),
+            lblIdClasificacion   = new PatLabel(" Num Soldado :      "),
+            lblTipo   = new PatLabel(" Nombre : "),
+            lblTotal = new PatLabel(" 0 de 0 ");
+    private PatTextBox 
+            txtIdClasificacion   = new PatTextBox(),
+            txtClasificacion   = new PatTextBox(),
+            txtCrea = new PatTextBox(),
+            txtModifica = new PatTextBox();
+    private PatButton 
+            btnPageIni  = new PatButton(" |< "),
+            btnPageAnt  = new PatButton(" << "),
+            btnPageSig  = new PatButton(" >> "),
+            btnPageFin  = new PatButton(" >| "),
 
-    private JPButton 
-            btnPageIni  = new JPButton(" |< "),
-            btnPageAnt  = new JPButton(" << "),
-            btnPageSig  = new JPButton(" >> "),
-            btnPageFin  = new JPButton(" >| "),
+            btnRowIni   = new PatButton(" |< "),
+            btnRowAnt   = new PatButton(" << "),
+            btnRowSig   = new PatButton(" >> "),
+            btnRowFin   = new PatButton(" >| "),
 
-            btnRowIni   = new JPButton(" |< "),
-            btnRowAnt   = new JPButton(" << "),
-            btnRowSig   = new JPButton(" >> "),
-            btnRowFin   = new JPButton(" >| "),
-
-            btnNuevo    = new JPButton("Nuevo"),
-            btnGuardar  = new JPButton("Guardar"),
-            btnCancelar = new JPButton("Cancelar"),
-            btnEliminar = new JPButton("Eliminar");
+            btnNuevo    = new PatButton("Nuevo"),
+            btnGuardar  = new PatButton("Guardar"),
+            btnCancelar = new PatButton("Cancelar"),
+            btnEliminar = new PatButton("Eliminar");
     private JPanel 
             pnlTabla    = new JPanel(),
             pnlBtnRow   = new JPanel(new FlowLayout()),
@@ -207,21 +208,22 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         
-        txtIdClasificacion.setEnabled(true);
+        txtIdClasificacion.setEnabled(false);
         txtIdClasificacion.setBorderLine();
-        // txtHumedad.setBorderLine();
+        txtClasificacion.setBorderLine();
 
+        pnlBtnPage.setBorder(getBorder());
         pnlBtnPage.add(btnPageIni);
         pnlBtnPage.add(btnPageAnt);
-        pnlBtnPage.add(new JPLabel(" Page:( "));
-        pnlBtnPage.add(lblTotalReg); //cambiar
-        pnlBtnPage.add(new JPLabel(" ) "));
+        pnlBtnPage.add(new PatLabel(" Page:( "));
+        pnlBtnPage.add(lblTotal); //cambiar
+        pnlBtnPage.add(new PatLabel(" ) "));
         pnlBtnPage.add(btnPageSig);
         pnlBtnPage.add(btnPageFin);
 
         pnlBtnRow.add(btnRowIni);
         pnlBtnRow.add(btnRowAnt);
-        pnlBtnRow.add(lblTotalReg);
+        pnlBtnRow.add(lblTotal);
         pnlBtnRow.add(btnRowSig);
         pnlBtnRow.add(btnRowFin);
 
@@ -231,11 +233,11 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
         pnlBtnCRUD.add(btnEliminar);
         pnlBtnCRUD.setBorder(IAStyle.createBorderRect());
 
-        gbc.insets = new Insets(1, 1, 1, 1);
+        gbc.insets = new Insets(5, 5, 5, 5);
 
         gbc.gridy = 0;
         gbc.gridx = 0;
-        gbc.gridwidth = 1;
+        gbc.gridwidth = 2;
         add(lblTitulo, gbc);
 
         gbc.gridy = 1;
@@ -249,8 +251,8 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
         gbc.gridy = 2;
         gbc.gridx = 0;
         gbc.gridwidth = 3;
-        gbc.ipady = 135;
-        gbc.ipadx = 435;
+        gbc.ipady = 150;
+        gbc.ipadx = 450;
         pnlTabla.add(new Label("Loading data..."));
         add(pnlTabla, gbc);
 
@@ -264,7 +266,7 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(Box.createRigidArea(new Dimension(0, 0)), gbc);
 
-        gbc.insets = new Insets(1, 0, 0, 0);  
+        gbc.insets = new Insets(10, 0, 0, 0);  
 
         gbc.gridy = 4;
         gbc.gridx = 0;
@@ -276,28 +278,32 @@ public class ClasificacionPanel  extends JPanel implements ActionListener {
 
         gbc.gridy = 5;
         gbc.gridx = 0;
-        add(lblHormiga, gbc);
+        add(lblIdClasificacion, gbc);
         gbc.gridy = 5;
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
         add(txtIdClasificacion, gbc);
 
-        // gbc.gridy = 6;
-        // gbc.gridx = 0;
-        // add(lblHumedad, gbc);
-        // gbc.gridy = 6;
+        gbc.gridy = 6;
+        gbc.gridx = 0;
+        add(lblTipo, gbc);
+        gbc.gridy = 6;
+        gbc.gridx = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
+        add(txtClasificacion, gbc);
+
+        // gbc.gridy = 7;
         // gbc.gridx = 1;
+        // gbc.gridwidth = 2;
         // gbc.fill = GridBagConstraints.HORIZONTAL;
-        // gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
-        // // add(txtHumedad, gbc);
-
-
+        // add(pnlBtnRow, gbc);
 
         gbc.gridy = 7;
         gbc.gridx = 0;
         gbc.gridwidth = 3;
-        gbc.insets = new Insets(2, 0, 0, 0);
+        gbc.insets = new Insets(30, 0, 0, 0);
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(pnlBtnCRUD, gbc);
     }

@@ -11,15 +11,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import UserInterface.IAStyle;
-import UserInterface.CustomerControl.JPButton;
+import UserInterface.CustomerControl.PatButton;
 
 public class MenuPanel extends JPanel {
-    public  JPButton   
-            btnHome     = new JPButton("Home"),
-            btnClasificacion    = new JPButton("Clasificacion");
-            // btnSexo     = new JPButton("Sexo"),
-            // btnLocalidad= new JPButton("Localidad"),
-            // btnTest     = new JPButton("btnTest");
+    public  PatButton   
+            btnHome     = new PatButton("Home"),
+            // btnLogin    = new PatButton("Login"),
+            btnClasificacion     = new PatButton("Clasificacion");
+            // btnExobot= new PatButton("Exobot");
+            // btnTest     = new PatButton("btnTest");
 
     public MenuPanel(){
         customizeComponent();
@@ -40,9 +40,9 @@ public class MenuPanel extends JPanel {
 
         // add-botones
         add(btnHome);
+        // add(btnLogin);
         add(btnClasificacion);
-        // add(btnSexo);
-        // add(btnLocalidad);
+        // add(btnExobot);
         // add(btnTest);
 
         // add-copyright

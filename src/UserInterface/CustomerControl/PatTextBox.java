@@ -8,9 +8,9 @@ import javax.swing.border.EmptyBorder;
 
 import UserInterface.IAStyle;
 
-public class JPTextBox extends JTextField {
+public class PatTextBox extends JTextField {
 
-    public JPTextBox() {
+    public PatTextBox() {
         customizeComponent();
     }
 
@@ -19,8 +19,9 @@ public class JPTextBox extends JTextField {
         setFont(IAStyle.FONT);  
         setForeground(IAStyle.COLOR_FONT_LIGHT);  
         setCaretColor(IAStyle.COLOR_CURSOR);    // Color del cursor
-        setMargin(new Insets(5, 5, 5, 5));      // Ajusta los márgenes
+        setMargin(new Insets(4, 4, 4, 4));      // Ajusta los márgenes
         setOpaque(false);                       // Fondo transparente
+        //setUI(new BasicTextFieldUI());  // Para deshabilitar el subrayado por defecto
     }
 
     public void setBorderRect() {
@@ -30,13 +31,10 @@ public class JPTextBox extends JTextField {
     }
 
     public void setBorderLine(){
-
-        Border lineBorder = BorderFactory.createLineBorder(IAStyle.COLOR_BORDER);
-        Border emptyBorder = new EmptyBorder(5, 5, 5, 5);  // Márgenes internos
-        setBorder(new CompoundBorder(lineBorder, emptyBorder));
-
-        setBackground(new Color(20, 20, 20)); // Casi negro
+        int thickness = 1;
+        setBorder(  BorderFactory.createCompoundBorder(
+                    BorderFactory.createEmptyBorder(0, 0, thickness, 0),
+                    BorderFactory.createMatteBorder(0, 0, thickness, 0, IAStyle.COLOR_BORDER) 
+        ));
     }
 }
-
-

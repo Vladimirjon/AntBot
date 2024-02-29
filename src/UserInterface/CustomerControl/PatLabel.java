@@ -7,11 +7,11 @@ import javax.swing.JLabel;
 
 import UserInterface.IAStyle;
 
-public class JPLabel extends JLabel{
-    public JPLabel(){
+public class PatLabel extends JLabel{
+    public PatLabel(){
         customizeComponent();
     }
-    public JPLabel(String text){
+    public PatLabel(String text){
         setText(text);
         customizeComponent();
     }
@@ -25,5 +25,6 @@ public class JPLabel extends JLabel{
         setBackground(null);
         setForeground(color);
         setHorizontalAlignment(alignment);
+        //setIcon(new ImageIcon(iconPath));
     }
 }

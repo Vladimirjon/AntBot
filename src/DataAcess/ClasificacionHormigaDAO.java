@@ -26,7 +26,8 @@ public class ClasificacionHormigaDAO extends SQLiteDataHelper implements IDAO<Cl
             while (rs.next()) {
                 oP = new ClasificacionHormigaDTO(rs.getInt(1) // IdPregunta
                 , rs.getString(2) // Enunciado
-                ); // FechaModifica
+                ,rs.getString(3) // FechaModifica
+                ,rs.getString(4)); // FechaModifica
             }
         } catch (SQLException e) {
             throw new PException(e.getMessage(), getClass().getName(), "readBy()");
@@ -47,7 +48,8 @@ public class ClasificacionHormigaDAO extends SQLiteDataHelper implements IDAO<Cl
             while (rs.next()) {
                 ClasificacionHormigaDTO ClasificacionHormigaDTO = new ClasificacionHormigaDTO(rs.getInt(1) // IdPregunta
                         , rs.getString(2) // IdCategoriaEstructura
-                        );// FechaModifica
+                        ,rs.getString(3)
+                        ,rs.getString(4));// FechaModifica
                 lst.add(ClasificacionHormigaDTO);
             }
         } catch (SQLException e) {
@@ -68,7 +70,7 @@ public class ClasificacionHormigaDAO extends SQLiteDataHelper implements IDAO<Cl
             ResultSet rs = stmt.executeQuery(query); // ejecutar la
             while (rs.next()) {
                 ClasificacionHormigaDTO ClasificacionHormigaDTO = new ClasificacionHormigaDTO(rs.getInt(1) // IdPregunta
-                , rs.getString(2) // IdCategoriaEstructura
+                , rs.getString(2),rs.getString(3),rs.getString(4) // IdCategoriaEstructura
                 );// FechaModifica
                 lst.add(ClasificacionHormigaDTO);
             }

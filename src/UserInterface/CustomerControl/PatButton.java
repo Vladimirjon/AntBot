@@ -1,31 +1,35 @@
 package UserInterface.CustomerControl;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+
 import UserInterface.IAStyle;
 
-public class JPButton  extends JButton implements MouseListener {
-    public JPButton(String text){
+import javax.swing.ImageIcon;
+
+public class PatButton  extends JButton implements MouseListener {
+    public PatButton(String text){
         customizeComponent(text);
     }
-    public JPButton(String text, String iconPath){
+    public PatButton(String text, String iconPath){
         customizeComponent(text, iconPath);
     }
 
     public void customizeComponent(String text, String iconPath){ 
         
-        setSize(30, 90);
+        setSize(16, 60);
         addMouseListener(this);
         customizeComponent(text);
-        setBounds(60, 70, 100, 30); 
+        setBounds(50, 30, 80, 18); 
         
         setIcon(new ImageIcon(iconPath));
         setFont(IAStyle.FONT);
-
-        setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
     public void customizeComponent(String text) {
         setText(text);
@@ -60,7 +64,7 @@ public class JPButton  extends JButton implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
-        setForeground(Color.GRAY);
+        setForeground(Color.BLACK);
         setCursor(IAStyle.CURSOR_DEFAULT);
     }
 }

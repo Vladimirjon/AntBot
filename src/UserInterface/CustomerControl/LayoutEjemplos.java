@@ -1,5 +1,6 @@
 package UserInterface.CustomerControl;
 
+
 import java.awt.Button;
 import java.awt.Choice;
 import java.awt.Color;
@@ -22,19 +23,19 @@ import javax.swing.border.LineBorder;
 
 public class LayoutEjemplos {
 
-    private JPLabel  
-            lblTitulo = new JPLabel("RIEGO"          ), //, Color.BLACK, new Font("MesloLGL Nerd Font", Font.BOLD ,  20)),
-            lblIdSexo = new JPLabel("Analisis:      " ),
-            lblNombre = new JPLabel("Descripción: " ),
-            lblTotalReg=new JPLabel("  0 de 0  "    );
+    private PatLabel  
+            lblTitulo = new PatLabel("SEXO"          ), //, Color.BLACK, new Font("MesloLGL Nerd Font", Font.BOLD ,  20)),
+            lblIdSexo = new PatLabel("Codigo:      " ),
+            lblNombre = new PatLabel("Descripción: " ),
+            lblTotalReg=new PatLabel("  0 de 0  "    );
     private TextField  
             txtIdSexo = new TextField (" ",20),
             txtNombre = new TextField (" ",20);
-    private JPButton
-            btnIni = new JPButton(" |< "), 
-            btnAnt = new JPButton(" << "),            
-            btnSig = new JPButton(" >> "),
-            btnFin = new JPButton(" >| ");
+    private PatButton
+            btnIni = new PatButton(" |< "), 
+            btnAnt = new PatButton(" << "),            
+            btnSig = new PatButton(" >> "),
+            btnFin = new PatButton(" >| ");
     private JButton
             btnNuevo = new JButton("Nuevo"),            
             btnGuardar = new JButton("Guardar"),
@@ -44,57 +45,49 @@ public class LayoutEjemplos {
             pnlTabla  = new JPanel(),
             pnlBtnCRUD= new JPanel(new FlowLayout()),
             pnlBtnPage= new JPanel(new FlowLayout());
-            
-            private Font 
-            fontTitle = new Font("Tahoma", Font.BOLD, 20),
-            fontButton = new Font("Tahoma", Font.BOLD | Font.CENTER_BASELINE, 11),
-            fontPanel = new Font("Tahoma", Font.LAYOUT_LEFT_TO_RIGHT | Font.PLAIN, 12);
-        
-        private Border line = new LineBorder(Color.lightGray);
-        private Border margin = new EmptyBorder(5, 5, 5, 5);
-        private Border border = new CompoundBorder(line, margin);
-        
-        // Set panel foreground color
-        private Color panelForegroundColor = new Color(144, 238, 144); // Greenish-White
-        
-        private Panel pnl = new Panel();
-        
-        private void addControls() {
-            // Customize fonts and colors:
-            lblTitulo.setFont(fontTitle);
-            lblIdSexo.setFont(fontPanel);
-            lblNombre.setFont(fontPanel);
-            lblTotalReg.setFont(fontPanel);
-        
-            txtIdSexo.setFont(fontPanel);
-            txtNombre.setFont(fontPanel);
-            txtIdSexo.setEditable(false);
-            txtIdSexo.setForeground(panelForegroundColor);
-            txtNombre.setForeground(panelForegroundColor);
-        
-            btnNuevo.setFont(fontButton);
-            btnGuardar.setFont(fontButton);
-            btnCancelar.setFont(fontButton);
-            btnEliminar.setFont(fontButton);
-        
-            pnlBtnCRUD.add(btnIni);
-            pnlBtnCRUD.add(btnAnt);
-            pnlBtnCRUD.add(new JLabel("\u11A2"));
-            pnlBtnCRUD.add(lblTotalReg);
-            pnlBtnCRUD.add(new JLabel("\u11A2"));
-            pnlBtnCRUD.add(btnSig);
-            pnlBtnCRUD.add(btnFin);
-            pnlBtnCRUD.add(new JLabel("\u11A2"));
-            pnlBtnCRUD.add(btnNuevo);
-            pnlBtnCRUD.add(btnGuardar);
-            // pnlBtnCRUD.add(btnCancelar);
-            pnlBtnCRUD.add(btnEliminar);
-            pnlBtnCRUD.setBorder(border);
-        
-            pnlTabla.setBounds(0, 0, 500, 500);
-            pnlTabla.setBorder(border);
-            pnlTabla.setForeground(panelForegroundColor);
-        
+    private Font 
+            fontTilte = new Font("MesloLGL Nerd Font", Font.BOLD ,  20),
+            fontBoton = new Font("MesloLGL Nerd Font", Font.BOLD | Font.CENTER_BASELINE,  11),
+            fontPanel = new Font("MesloLGL Nerd Font", Font.LAYOUT_LEFT_TO_RIGHT | Font.PLAIN, 12);
+    
+             private Border line             = new LineBorder(Color.lightGray);
+    private Border margin           = new EmptyBorder(5, 5, 5, 5);
+    private Border border           = new CompoundBorder(line, margin);
+    private Panel pnl = new Panel();
+    private void  addControls(){
+        //Customize:
+        lblTitulo.setFont(fontTilte);         
+        lblIdSexo.setFont(fontPanel); 
+        lblNombre.setFont(fontPanel); 
+        lblTotalReg.setFont(fontPanel); 
+
+        txtIdSexo.setFont(fontPanel); 
+        txtNombre.setFont(fontPanel); 
+        txtIdSexo.setEditable( false );
+        txtIdSexo.setForeground (Color.darkGray);
+        txtNombre.setForeground (Color.darkGray);
+
+        btnNuevo.setFont(fontBoton);         
+        btnGuardar.setFont(fontBoton); 
+        btnCancelar.setFont(fontBoton); 
+        btnEliminar.setFont(fontBoton); 
+
+        pnlBtnCRUD.add(btnIni);       
+        pnlBtnCRUD.add(btnAnt);  
+        pnlBtnCRUD.add(new JLabel("\u11A2"));      
+        pnlBtnCRUD.add(lblTotalReg);        
+        pnlBtnCRUD.add(new JLabel("\u11A2"));      
+        pnlBtnCRUD.add(btnSig);
+        pnlBtnCRUD.add(btnFin);
+        pnlBtnCRUD.add(new JLabel("\u11A2"));      
+        pnlBtnCRUD.add(btnNuevo);
+        pnlBtnCRUD.add(btnGuardar);
+        //pnlBtnCRUD.add(btnCancelar);
+        pnlBtnCRUD.add(btnEliminar);
+        pnlBtnCRUD.setBorder(border);
+
+        pnlTabla.setBounds(0,0,500,500);
+        pnlTabla.setBorder(border);
         
         //Grillado
         pnl.setLayout( new GridBagLayout() );
@@ -126,7 +119,7 @@ public class LayoutEjemplos {
     }
     private void  addControls2(){
         //Customize:
-        lblTitulo.setFont(fontTitle);         
+        lblTitulo.setFont(fontTilte);         
         lblIdSexo.setFont(fontPanel); 
         lblNombre.setFont(fontPanel); 
         lblTotalReg.setFont(fontPanel); 
@@ -137,10 +130,10 @@ public class LayoutEjemplos {
         txtIdSexo.setForeground (Color.darkGray);
         txtNombre.setForeground (Color.darkGray);
 
-        btnNuevo.setFont(fontButton);         
-        btnGuardar.setFont(fontButton); 
-        btnCancelar.setFont(fontButton); 
-        btnEliminar.setFont(fontButton); 
+        btnNuevo.setFont(fontBoton);         
+        btnGuardar.setFont(fontBoton); 
+        btnCancelar.setFont(fontBoton); 
+        btnEliminar.setFont(fontBoton); 
         btnNuevo.setContentAreaFilled(false);
         btnGuardar.setContentAreaFilled(false);
         btnCancelar.setContentAreaFilled(false);
@@ -353,14 +346,14 @@ public class LayoutEjemplos {
         //     btn.setLocation(2, i*30);
         //     add(btn);
         // }
-        JPLabel 
-        titulo      =new JPLabel("Compre algo ahora"),
-        nombre      =new JPLabel("Nombre:"),
-        direccion   =new JPLabel("Dirección:"),
-        pago        =new JPLabel("Método de pago:"),
-        telefono    =new JPLabel("Teléfono:"),
-        ciudad      =new JPLabel("Ciudad:"),
-        provincia   =new JPLabel("Provincia:"); //Color.DARK_GRAY,
+        PatLabel 
+        titulo      =new PatLabel("Compre algo ahora"),
+        nombre      =new PatLabel("Nombre:"),
+        direccion   =new PatLabel("Dirección:"),
+        pago        =new PatLabel("Método de pago:"),
+        telefono    =new PatLabel("Teléfono:"),
+        ciudad      =new PatLabel("Ciudad:"),
+        provincia   =new PatLabel("Provincia:"); //Color.DARK_GRAY,
                                 //     new Font("MesloLGL Nerd Font", Font.BOLD | Font.LAYOUT_RIGHT_TO_LEFT, 12));
 
         JTextField 
@@ -401,7 +394,7 @@ public class LayoutEjemplos {
         gbc.ipady = 150;        //tamaño del espacio a usar
         gbc.ipadx = 500;
         gbc.gridwidth=GridBagConstraints.REMAINDER;
-        pnlTabla.add(new JPLabel("Loading data..."));
+        pnlTabla.add(new PatLabel("Loading data..."));
         pnl.add(pnlTabla, gbc);
 
         //Limpiar grid
