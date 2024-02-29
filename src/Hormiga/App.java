@@ -2,8 +2,10 @@ package Hormiga;
 
 import java.util.Random;
 
+import DataAccessExamen.tpLarvasDAO;
 import DataAccessExamen.ArchivoTexto.archivoTexto;
 import DataAccessExamen.ArchivoTexto.vistaTexto;
+import DataAccessExamen.DTO.tpLarvasDTO;
 
 import java.util.ArrayList;
 
@@ -19,7 +21,7 @@ public class App {
          archivoTexto TParchivoTexto = new archivoTexto();
          vistaTexto TPvistaTexto = new vistaTexto();
 
-         ArrayList<String> palabras = TPvistaTexto.obtenerPalabras();
+         ArrayList<String> palabras = vistaTexto.obtenerPalabras();
 
         AntBot oAntBot = new AntBot();
 
@@ -64,14 +66,17 @@ public class App {
                     System.out.println("Alas integradas en el torso");
                     oAntBot.IdiomarIngles();
                     oAntBot.IdiomarRuso();
+                    System.out.println();
                     break;
                 case 2:
                 System.out.println(elementoAleatorio);
                     Hormiguita = new Hormiga(codigo, elementoAleatorio);
+                    System.out.println();
                     break;
                 case 3:
                 System.out.println(elementoAleatorio);
                     Hormiguita = new Hormiga(codigo, elementoAleatorio);
+                    System.out.println();
                     break;
                 case 4:
                 System.out.println(elementoAleatorio);
@@ -81,6 +86,7 @@ public class App {
                     System.out.println(Hormiguita.oAntBot.generarExtremidades());
                     oAntBot.IdiomarIngles();
                     oAntBot.IdiomarRuso();
+                    System.out.println();
                     break;
                 default:
                 System.err.println("Error en la asignación de etiqueta");
@@ -109,9 +115,30 @@ public class App {
         System.out.println(Hormiguita.getTPlarvas());
 
         }
+        System.out.println();
+        System.out.println(vistaTexto.obtenerPalabras());
 
-        //TPvistaTexto.obtenerPalabras();
-    }
+    // ArrayList<Hormiga> TPgusanos = Hormiguita.getTPgusanos();
+    // String[] nombres = new String[TPgusanos.size()];
+    // int[] codigos = new int[TPgusanos.size()];
+
+
+
+// for (int i = 0; i < TPgusanos.size(); i++) {
+//     String soldado = "Soldado";
+//     Hormiga gusano = TPgusanos.get(i);
+//     String nombre = gusano.getNumeroSerie();  
+//     boolean comida = gusano.comer("Carnivoro");  
+//     // if (nombre.equalsIgnoreCase("Larva") && comida.equalsIgnoreCase("Carnivoro")) {
+//     //     return soldado;
+//     //     // Aquí puedes asignar "Soldado" al resultado o realizar la acción que necesites con esa información.
+//     // }
+
+// }
+
+
+
+//
 
     // private static DatosHormiga seleccionarHormigaReina(ArrayList<DatosHormiga> listaHormigas) {
     //     for (DatosHormiga hormiga : listaHormigas) {
@@ -125,4 +152,5 @@ public class App {
     //     // Return null if no queen is found
     //     return null;
     // }
+}
 }
