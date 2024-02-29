@@ -8,8 +8,11 @@ public class Hormiga implements  IHormiga {
     private int codigoUnico;
     private String numeroSerie;
     private String TPtipoHormiga;
+    NumeroSerie oNumeroSerie = new NumeroSerie();
     AntBot oAntBot;
     ArrayList<Hormiga> listaHormigas = new ArrayList<>();
+    ArrayList<Hormiga> TPgusanos = new ArrayList<>();
+
     public ArrayList<String> getTPlarvas() {
         return TPlarvas;
     }
@@ -117,18 +120,39 @@ public class Hormiga implements  IHormiga {
         return 0;
     }
 
-    public void TPcrearLarvas(){
+    // public void TPcrearLarvas(){
+    //     int posicionReina = verificarReina();
+    //     TPlarvas = new ArrayList<>();
+    //     if (posicionReina  != 0) {
+    //         for(int i=1; i<=40; i++){
+    //             TPlarvas.add("Larva" + i);
+    //         }
+    //     }
+
+    // }
+
+    public void TPcrearLarvas() {
         int posicionReina = verificarReina();
         TPlarvas = new ArrayList<>();
-        if (posicionReina  != 0) {
-            for(int i=1; i<=40; i++){
-                TPlarvas.add("Larva" + i);
+
+        if (posicionReina != -1) {
+            for (int i = 1; i <= 40; i++) {
+                // Generar código único
+                int codigoUnico = oNumeroSerie.generarCodigoUnico();
+                // Crear nombre de larva
+                String nombreLarva = "Larva" + i;
+
+                // Crear instancia de Hormiga y agregarla a la lista
+                TPgusanos.add(new Hormiga(codigoUnico, nombreLarva));
             }
         }
     }
     
     public boolean comer(String alimento){
-        return true;
+        if (alimento.equals("Carnivoro")) {
+            return true;
+        }
+        return false;
     }
     
    

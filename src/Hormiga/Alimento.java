@@ -1,23 +1,22 @@
 package Hormiga;
-
-public abstract class Alimento implements IHormiga, IIA{
+public abstract class Alimento {
     
     private String TJcomida;
-    private String TJcomidaAceptada = "Carnivoro";
-    
+
+    // Constructor de la clase abstracta Alimento
     public Alimento(int TJopcionComida){
-        
         String[] TJtipoComida = { "Carnivoro", "Herbivoro", "Omnivoro", "Insectivoro"};
         this.TJcomida = TJtipoComida[TJopcionComida];
     }
 
-    public boolean comer(String TJcomida) {
+    // Getters y setters (pueden ser necesarios)
 
-        if (TJcomida.equals(TJcomidaAceptada)) {
-            
-        }
+    public String getTJcomida() {
+        return TJcomida;
+    }
 
-
-        return true;
+    public void setTJcomida(String TJcomida) {
+        this.TJcomida = TJcomida;
     }
 }
+
