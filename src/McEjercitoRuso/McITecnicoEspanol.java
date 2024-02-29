@@ -1,6 +1,6 @@
 package McEjercitoRuso;
 
 public interface McITecnicoEspanol {
-   public boolean ensenarespanol = true;
+   public boolean ensenarruso = true;
     
 }

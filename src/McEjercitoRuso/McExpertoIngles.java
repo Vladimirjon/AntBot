@@ -2,10 +2,12 @@ package McEjercitoRuso;
 
 import McInteligenciaArtificial.IAbot;
 
-public class McExpertoIngles extends McHumano implements McITecnicoIngles{
+public class McExpertoIngles  implements McITecnicoIngles{
 
-   public McExpertoIngles(McHumano mcHumano){
-    super(mcHumano);
+
+   public void idioma(){
+      System.out.println("--->  Ingles tecnico.... lexico, gramatica, fonetica transferida al ANTBOT");
+
    }
     
     
