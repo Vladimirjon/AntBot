@@ -4,11 +4,19 @@ public class ClasificacionHormigaDTO {
 
     private Integer IdCategoriaHormiga;
 
+    public void setIdCategoriaHormiga(Integer idCategoriaHormiga) {
+        IdCategoriaHormiga = idCategoriaHormiga;
+    }
+
     public Integer getIdCategoriaHormiga() {
         return IdCategoriaHormiga;
     }
 
     private String ClasificacionHormiga;
+
+    public void setClasificacionHormiga(String clasificacionHormiga) {
+        ClasificacionHormiga = clasificacionHormiga;
+    }
 
     public String getClasificacionHormiga() {
         return ClasificacionHormiga;
@@ -46,6 +54,13 @@ public class ClasificacionHormigaDTO {
 
     }
 
+    public String toString(){
+        return getClass().getName()
+        + "\n Id:       "+ getIdCategoriaHormiga()       
+        + "\n TipoHormiga:       "+ getClasificacionHormiga()      
+        + "\n FechaCrea:       "+ getFechaCrea() 
+        + "\n FechaModifica:       "+ getFechaModifica();
+    }
 
 
 

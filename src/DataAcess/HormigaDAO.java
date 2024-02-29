@@ -62,31 +62,31 @@ public class HormigaDAO extends SQLiteDataHelper implements IDAO<HormigaDTO>{
         return lst;
     }
 
-    @Override
-    public List<HormigaDTO> readById(Integer id) throws Exception {
-        List<HormigaDTO> lst = new ArrayList<>();
-        String query = " SELECT IdHormiga               "
-        + " ,CodigoHormiga     "
-        + " ,IdCategoriaHormigas                       "
-        + " ,SerieAntBot                         "
-        + " FROM    Antbot                ";
-        try {
-            Connection conn = openConnection(); // conectar a DB
-            Statement stmt = conn.createStatement(); // CRUD : select * ...
-            ResultSet rs = stmt.executeQuery(query); // ejecutar la
-            while (rs.next()) {
-                HormigaDTO HormigaDTO = new HormigaDTO(rs.getInt(1) // IdPregunta
-                        , rs.getString(2) // IdCategoriaEstructura
-                        , rs.getInt(3) // Enunciado
+    // @Override
+    // public List<HormigaDTO> readById(Integer id) throws Exception {
+    //     List<HormigaDTO> lst = new ArrayList<>();
+    //     String query = " SELECT IdHormiga               "
+    //     + " ,CodigoHormiga     "
+    //     + " ,IdCategoriaHormigas                       "
+    //     + " ,SerieAntBot                         "
+    //     + " FROM    Antbot                ";
+    //     try {
+    //         Connection conn = openConnection(); // conectar a DB
+    //         Statement stmt = conn.createStatement(); // CRUD : select * ...
+    //         ResultSet rs = stmt.executeQuery(query); // ejecutar la
+    //         while (rs.next()) {
+    //             HormigaDTO HormigaDTO = new HormigaDTO(rs.getInt(1) // IdPregunta
+    //                     , rs.getString(2) // IdCategoriaEstructura
+    //                     , rs.getInt(3) // Enunciado
 
-                        , rs.getInt(4));// FechaModifica
-                lst.add(HormigaDTO);
-            }
-        } catch (SQLException e) {
-            throw new PException(e.getMessage(), getClass().getName(), "readAll()");
-        }
-        return lst;
-    }
+    //                     , rs.getInt(4));// FechaModifica
+    //             lst.add(HormigaDTO);
+    //         }
+    //     } catch (SQLException e) {
+    //         throw new PException(e.getMessage(), getClass().getName(), "readAll()");
+    //     }
+    //     return lst;
+    // }
 
     @Override
     public boolean create(HormigaDTO entity) throws Exception {

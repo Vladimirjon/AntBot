@@ -7,6 +7,6 @@ INSERT INTO
     (4, 'Reina'),
     (5, 'Zangano');
 
-INSERT INTO
-    InformacionHormigas (CodigoHormiga, IdCategoriaHormigas, SerieAntBot) VALUES
-    ('1A2B3C', 1, 1234);
+-- INSERT INTO
+--     InformacionHormigas (CodigoHormiga, IdCategoriaHormigas, SerieAntBot) VALUES
+--     ('1A2B3C', 1, 1234);

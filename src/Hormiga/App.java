@@ -9,7 +9,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        String[] clasificacion = { "Soldado", "Zangano", "Reina", "Larva", "Rastreadora" };
+        String[] clasificacion = { "SOLDADO", "ZANGANO", "REINA", "LARVA", "RASTREADORA" };
 
         NumeroSerie oNumeroSerie = new NumeroSerie();
 
@@ -37,8 +37,8 @@ public class App {
 
             switch (indiceAleatorio) {
                 case 0:
+                Hormiguita = new Hormiga(codigo, numserieunica);
                     System.out.println(elementoAleatorio);
-                    Hormiguita = new Hormiga(codigo, numserieunica);
                     System.out.println(numserieunica);
                     Hormiguita.oAntBot.Instrucciones(elementoAleatorio);
                     System.out.println(Hormiguita.oAntBot.generarExtremidades());
@@ -48,8 +48,8 @@ public class App {
                     
                     break;
                 case 1:
+                Hormiguita = new Hormiga(codigo, numserieunica);
                     System.out.println(elementoAleatorio);
-                    Hormiguita = new Hormiga(codigo, numserieunica);
                     System.out.println(numserieunica);
                     Hormiguita.oAntBot.Instrucciones(elementoAleatorio);
                     System.out.println(Hormiguita.oAntBot.generarExtremidades());
@@ -57,26 +57,35 @@ public class App {
                     System.out.println("Alas integradas en el torso");
                     oAntBot.IdiomarIngles();
                     oAntBot.IdiomarRuso();
+                    System.out.println();
                     break;
                 case 2:
+                Hormiguita = new Hormiga(codigo);
                 System.out.println(elementoAleatorio);
-                    Hormiguita = new Hormiga(codigo);
+                    System.out.println();
+
                     break;
                 case 3:
+                Hormiguita = new Hormiga(codigo);
                 System.out.println(elementoAleatorio);
-                    Hormiguita = new Hormiga(codigo);
+                    System.out.println();
+
                     break;
                 case 4:
+                Hormiguita = new Hormiga(codigo, numserieunica);
                 System.out.println(elementoAleatorio);
-                    Hormiguita = new Hormiga(codigo, numserieunica);
                     System.out.println(numserieunica);
                     Hormiguita.oAntBot.Instrucciones(elementoAleatorio);
                     System.out.println(Hormiguita.oAntBot.generarExtremidades());
                     oAntBot.IdiomarIngles();
                     oAntBot.IdiomarRuso();
+                    System.out.println();
+
                     break;
                 default:
                 System.err.println("Error en la asignación de etiqueta");
+                System.out.println();
+
                     break;
             }
             

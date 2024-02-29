@@ -157,14 +157,14 @@ public class PanelClasificacion  extends JPanel implements ActionListener {
                 int row = table.rowAtPoint(e.getPoint());
                 int col = table.columnAtPoint(e.getPoint());
                 if (row >= 0 && col >= 0) {
-                    String strIdSoldado = table.getModel().getValueAt(row, 0).toString();
-                    id = Integer.parseInt(strIdSoldado);
+                    String strIdClasificacion = table.getModel().getValueAt(row, 0).toString();
+                    id = Integer.parseInt(strIdClasificacion);
                     try {
                         hormiga = hormigaBL.getByIdClasificacion(id);
                         showRow();
                     } catch (Exception ignored) {
                     }
-                    System.out.println("Tabla.Selected: " + strIdSoldado);
+                    System.out.println("Tabla.Selected: " + strIdClasificacion);
                 }
             }
         });
@@ -174,9 +174,9 @@ public class PanelClasificacion  extends JPanel implements ActionListener {
  * FormDesing : pat_mic
  ************************/ 
     private PatLabel 
-            lblTitulo   = new PatLabel("SOLDADO "),
-            lblIdClasificacion   = new PatLabel(" Num Soldado :      "),
-            lblTipo   = new PatLabel(" Nombre : "),
+            lblTitulo   = new PatLabel(" CLASIFICACION "),
+            lblIdClasificacion   = new PatLabel(" Id Hormiga :      "),
+            lblTipo   = new PatLabel(" Tipo : "),
             lblTotal = new PatLabel(" 0 de 0 ");
     private PatTextBox 
             txtIdClasificacion   = new PatTextBox(),

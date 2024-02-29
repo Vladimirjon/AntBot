@@ -10,14 +10,14 @@ ClasificacionHormigas (
 
 );
 
-DROP TABLE IF EXISTS InformacionHormigas;
+-- DROP TABLE IF EXISTS InformacionHormigas;
 
-CREATE TABLE
-InformacionHormigas (
-    IdHormiga INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    CodigoHormiga TEXT NOT NULL,
-    IdCategoriaHormigas INTEGER NOT NULL REFERENCES ClasificacionHormigas(IdCategoriaHormiga),
-    SerieAntBot INTEGER NOT NULL,
-    FechaCrea DATETIME DEFAULT (datetime('now', 'localtime')),
-    FechaModifica DATETIME
-);
+-- CREATE TABLE
+-- InformacionHormigas (
+--     IdHormiga INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+--     CodigoHormiga TEXT NOT NULL,
+--     IdCategoriaHormigas INTEGER NOT NULL REFERENCES ClasificacionHormigas(IdCategoriaHormiga),
+--     SerieAntBot INTEGER NOT NULL,
+--     FechaCrea DATETIME DEFAULT (datetime('now', 'localtime')),
+--     FechaModifica DATETIME
+-- );

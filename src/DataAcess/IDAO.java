@@ -7,7 +7,7 @@ public interface IDAO<T> {
 
     public List<T> readAll() throws Exception;
 
-    public List<T> readById(Integer id) throws Exception;
+    // public List<T> readById(Integer id) throws Exception;
 
     public boolean create(T entity) throws Exception;
 
