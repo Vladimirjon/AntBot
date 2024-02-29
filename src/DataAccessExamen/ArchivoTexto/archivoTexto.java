@@ -1,4 +1,4 @@
-package DataAcess.ArchivoTexto;
+package DataAccessExamen.ArchivoTexto;
 
 import java.io.File;
 import java.io.FileWriter;

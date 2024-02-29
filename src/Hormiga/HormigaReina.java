@@ -1,7 +1,7 @@
 package Hormiga;
+import DataAccessExamen.ArchivoTexto.archivoTexto;
+import DataAccessExamen.ArchivoTexto.vistaTexto;
 import DataAcess.*;
-import DataAcess.ArchivoTexto.archivoTexto;
-import DataAcess.ArchivoTexto.vistaTexto;
 
 public class HormigaReina extends Hormiga {
 
