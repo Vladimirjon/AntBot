@@ -9,16 +9,16 @@ public class HormigaReina {
     vistaTexto vistaTexto = new vistaTexto();
     NumeroSerie oNumeroSerie = new NumeroSerie();
     
-    DatosHormiga Hormiga = new Hormiga();
+    Hormiga Hormiga = new App();
 
 
     int codigo;
-    DatosHormiga Hormiguita = null;
+    Hormiga Hormiguita = null;
 
     public void HormigasCreadas(){
         for(int i = 1;  i <= 40; i++){
             codigo = oNumeroSeriegenerarCodigoUnico();        
-            Hormiguita = new DatosHormiga(codigo);        
+            Hormiguita = new Hormiga(codigo);        
         }
     
         
