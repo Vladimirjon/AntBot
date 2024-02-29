@@ -14,8 +14,8 @@ import FrameWork.PException;
 
 public class ClasificacionHormigaDAO extends SQLiteDataHelper implements IDAO<ClasificacionHormigaDTO>{
     @Override
-    public ClasificacionHormigaDAO readBy(Integer id) throws Exception {
-        ClasificacionHormigaDAO oP = new ClasificacionHormigaDAO();
+    public ClasificacionHormigaDTO readBy(Integer id) throws Exception {
+        ClasificacionHormigaDTO oP = new ClasificacionHormigaDTO();
         String query = " SELECT IdCategoriaHormiga           "
                 + " ,ClasificacionHormiga     "
                 + " FROM    ClasificacionHormigas                ";
@@ -24,10 +24,9 @@ public class ClasificacionHormigaDAO extends SQLiteDataHelper implements IDAO<Cl
             Statement stmt = conn.createStatement(); // CRUD : selec t * ...
             ResultSet rs = stmt.executeQuery(query); // ejecutar la
             while (rs.next()) {
-                oP = new ClasificacionHormigaDAO(rs.getInt(1) // IdPregunta
-                        , rs.getInt(2) // IdCategoriaEstructura
-                        , rs.getString(3) // Enunciado
-                        , rs.getInt(4)); // FechaModifica
+                oP = new ClasificacionHormigaDTO(rs.getInt(1) // IdPregunta
+                , rs.getString(2) // Enunciado
+                ); // FechaModifica
             }
         } catch (SQLException e) {
             throw new PException(e.getMessage(), getClass().getName(), "readBy()");
@@ -36,24 +35,20 @@ public class ClasificacionHormigaDAO extends SQLiteDataHelper implements IDAO<Cl
     }
 
     @Override
-    public List<ClasificacionHormigaDAO> readAll() throws Exception {
-        List<ClasificacionHormigaDAO> lst = new ArrayList<>();
-        String query = " SELECT IdRespuesta               "
-                + " ,IdPregunta     "
-                + " ,RespuestaUsuario                       "
-                + " ,Aprobada                         "
-                + " FROM    Respuesta                ";
+    public List<ClasificacionHormigaDTO> readAll() throws Exception {
+        List<ClasificacionHormigaDTO> lst = new ArrayList<>();
+        String query = " SELECT IdCategoriaHormiga           "
+                + " ,ClasificacionHormiga     "
+                + " FROM    ClasificacionHormigas                ";
         try {
             Connection conn = openConnection(); // conectar a DB
             Statement stmt = conn.createStatement(); // CRUD : select * ...
             ResultSet rs = stmt.executeQuery(query); // ejecutar la
             while (rs.next()) {
-                ClasificacionHormigaDAO ClasificacionHormigaDAO = new ClasificacionHormigaDAO(rs.getInt(1) // IdPregunta
-                        , rs.getInt(2) // IdCategoriaEstructura
-                        , rs.getString(3) // Enunciado
-
-                        , rs.getInt(4));// FechaModifica
-                lst.add(ClasificacionHormigaDAO);
+                ClasificacionHormigaDTO ClasificacionHormigaDTO = new ClasificacionHormigaDTO(rs.getInt(1) // IdPregunta
+                        , rs.getString(2) // IdCategoriaEstructura
+                        );// FechaModifica
+                lst.add(ClasificacionHormigaDTO);
             }
         } catch (SQLException e) {
             throw new PException(e.getMessage(), getClass().getName(), "readAll()");
@@ -62,25 +57,20 @@ public class ClasificacionHormigaDAO extends SQLiteDataHelper implements IDAO<Cl
     }
 
     @Override
-    public List<ClasificacionHormigaDAO> readById(Integer id) throws Exception {
-        List<ClasificacionHormigaDAO> lst = new ArrayList<>();
-        String query = " SELECT IdRespuesta               "
-                + " ,IdPregunta     "
-                + " ,RespuestaUsuario                       "
-                + " ,Aprobada                         "
-                + " FROM    Respuesta                "
-                + " WHERE   IdPregunta =   " + id.toString();
+    public List<ClasificacionHormigaDTO> readById(Integer id) throws Exception {
+        List<ClasificacionHormigaDTO> lst = new ArrayList<>();
+        String query = " SELECT IdCategoriaHormiga           "
+                + " ,ClasificacionHormiga     "
+                + " FROM    ClasificacionHormigas                ";
         try {
             Connection conn = openConnection(); // conectar a DB
             Statement stmt = conn.createStatement(); // CRUD : select * ...
             ResultSet rs = stmt.executeQuery(query); // ejecutar la
             while (rs.next()) {
-                ClasificacionHormigaDAO ClasificacionHormigaDAO = new ClasificacionHormigaDAO(rs.getInt(1) // IdPregunta
-                        , rs.getInt(2) // IdCategoriaEstructura
-                        , rs.getString(3) // Enunciado
-
-                        , rs.getInt(4));// FechaModifica
-                lst.add(ClasificacionHormigaDAO);
+                ClasificacionHormigaDTO ClasificacionHormigaDTO = new ClasificacionHormigaDTO(rs.getInt(1) // IdPregunta
+                , rs.getString(2) // IdCategoriaEstructura
+                );// FechaModifica
+                lst.add(ClasificacionHormigaDTO);
             }
         } catch (SQLException e) {
             throw new PException(e.getMessage(), getClass().getName(), "readAll()");
@@ -89,14 +79,14 @@ public class ClasificacionHormigaDAO extends SQLiteDataHelper implements IDAO<Cl
     }
 
     @Override
-    public boolean create(ClasificacionHormigaDAO entity) throws Exception {
-        String query = " INSERT INTO Respuesta (IdPregunta, RespuestaUsuario, Aprobada) VALUES (?,?,?)";
+    public boolean create(ClasificacionHormigaDTO entity) throws Exception {
+        String query = " INSERT INTO ClasificacionHormigas (IdCategoriaHormiga, ClasificacionHormiga) VALUES (?,?)";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, entity.getIdPregunta());
-            pstmt.setString(2, entity.getRespuestaUsuario());
-            pstmt.setInt(3, entity.getAprobada());
+            pstmt.setInt(1, entity.getIdCategoriaHormiga());
+            pstmt.setString(2, entity.getClasificacionHormiga());
+            
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -105,15 +95,15 @@ public class ClasificacionHormigaDAO extends SQLiteDataHelper implements IDAO<Cl
     }
 
     @Override
-    public boolean update(ClasificacionHormigaDAO entity) throws Exception {
-        String query = " UPDATE Respuesta SET RespuestaUsuario = ?, Aprobada = ? WHERE IdRespuesta = ?";
+    public boolean update(ClasificacionHormigaDTO entity) throws Exception {
+        String query = " UPDATE  ClasificacionHormigas SET ClasificacionHormiga = ?,  WHERE IdCategoriaHormiga = ?";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
 
-            pstmt.setString(1, entity.getRespuestaUsuario());
-            pstmt.setInt(2, entity.getAprobada());
-            pstmt.setInt(3, entity.getIdRespuesta());
+            pstmt.setString(1, entity.getClasificacionHormiga());
+            pstmt.setInt(2, entity.getIdCategoriaHormiga());
+            
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -123,7 +113,7 @@ public class ClasificacionHormigaDAO extends SQLiteDataHelper implements IDAO<Cl
 
     @Override
     public boolean delete(Integer id) throws Exception {
-        String query = "DELETE Respuesta WHERE IdRespuesta = ?";
+        String query = "DELETE ClasificacionHormigas WHERE IdCategoriaHormiga = ?";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
