@@ -12,6 +12,7 @@ import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneDarkIJTheme;
 
+import DataAccessExamen.tpLarvasDAO;
 import UserInterface.Form.MainForm;
 import UserInterface.Form.SplashScreenForm;
 
@@ -88,6 +89,8 @@ public class App {
        SplashScreenForm.show();
        MainForm frmMain = new MainForm("ANTBOT");
 
+       tpLarvasDAO TPDAO =  new tpLarvasDAO();
+       tp
     //    try {
     //         SexoDAO sDao = new SexoDAO();
     //         for (SexoDTO s : sDao.readAll()) 
